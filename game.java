@@ -1,3 +1,6 @@
-public interface game {
+public game implements gameInterface{
+
+
+
 
 }
