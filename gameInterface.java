@@ -1,22 +1,21 @@
-public interface gameInterface {
+public interface GameInterface {
+  // Overview: Checks to see if the game has been won/draw
+  // Input: void
+  // Output: 0 = game still in progress, 1 = tie, 2 = win
+  public int gameOver();
 
-  public int[][] board; // Represents the Connect4 board
-  public int turn; // Variable the holds whose turn it is
-  public int yellow; // Player1
-  public int red; // Player2
-  public int id; // GameID
-
-  // Checks to see if the game has been won/draw
-  public boolean gameOver();
-
-  // Places move in desired column
+  // Overview: Places move in desired column
   // Input: Numerical number indexed at 0
-  // Output: True if valid move, False Else
+  // Output: True if valid move, False else
   public boolean placeMove(int column);
 
   // Wipes the board of all pieces
+  // Input: void
+  // Output: void
   public void resetBoard();
 
-  //Prints the board clearly to the terminal
-  public void showBoard(int[][] board);
+  // Prints the board clearly to the terminal
+  // Input: void
+  // Output: Terminal
+  public void showBoard();
 }
