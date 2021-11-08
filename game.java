@@ -9,7 +9,7 @@ public class Game implements GameInterface {
     id = boardId;
   }
 
-  public boolean fourInARow(int turn, int row, int col,int[][] board){
+  public boolean fourInARow(int turn, int row, int col, int[][] board){
     //Vertical
     if(row + 3 < board.length)
     {
