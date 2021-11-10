@@ -5,6 +5,7 @@ public class Game implements GameInterface {
   public int turn = yellow; // Yellow Goes first
   public int id;
 
+  // Constructor
   public Game(int boardId) {
     id = boardId;
   }
