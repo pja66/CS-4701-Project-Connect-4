@@ -88,38 +88,24 @@ public class HeuristicAlgos implements HeuristicAlgosInterface {
 
   public int maxConnected(Game currentGame) {
     Game gameTemp = currentGame;
-    int[] moveScore = new int[7];
     int curTurn = gameTemp.turn;
+    int score = 0;
 
-    for (int i = 0; i < 7; i++) {
-      int row = gameTemp.placeMove(i);
-      if (row != -1) {
-        int numVert = helperVert(gameTemp, i, row, curTurn);
-        int numHor = helperHor(gameTemp, i, row, curTurn);
-        int numDiag = helperDiag(gameTemp, i, row, curTurn);
-
-        moveScore[i] = Math.max(Math.max(numVert, numHor), numDiag);
-        gameTemp.removeMove(i);
-      } else
-        moveScore[i] = -1; // Move not possible
+    for(int j = 0; j < 7; j++)
+    {
+      gameTemp.removeMove(j);
+      int row = gameTemp.placeMove(j);
+      int numVert = helperVert(gameTemp, j, row, curTurn);
+      int numHor = helperHor(gameTemp, j, row, curTurn);
+      int numDiag = helperDiag(gameTemp, j, row, curTurn);
+      score += numVert + numHor + numDiag;
     }
-
-    int max = -1;
-    int index = -1;
-    for (int j = 0; j < 7; j++) {
-      if (moveScore[j] > max) {
-        max = moveScore[j];
-        index = j;
-      }
-    }
-    return index;
+    return score;
   }
 
   public int blockLongestOppStr(Game currentGame) {
-    Game gameTemp = currentGame;
-    gameTemp.changeTurn();
-
-    return maxConnected(gameTemp);
+    //Need to Implement
+    return 0;
   }
 
   public int valueCenterofBoard(Game currentGame) {
@@ -131,24 +117,17 @@ public class HeuristicAlgos implements HeuristicAlgosInterface {
                       {4,6,8,10,8,6,4},
                       {3,4,5,7,5,4,3}
                       };
-
-    Game gameTemp = currentGame;
+    int score = 0;                    
     
-    int moveScore = -1;
-    int index = -1;
-
-    for (int i = 0; i < 7; i++) {
-      int row = gameTemp.placeMove(i);
-      if (row != -1) 
+    for(int i = 0; i < 6; i++)
+    {
+      for(int j = 0; j < 7; j++)
       {
-        if(moveScore < weights[row][i])
-          {
-            moveScore = weights[row][i];
-            index = i;
-          }
+        if(currentGame.board[i][j] == currentGame.turn)
+          score += weights[i][j];
       }
     }
-    return index; 
+    return score;
   }
 
 }

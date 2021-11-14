@@ -4,10 +4,10 @@ public class GameTest {
 
     // Empty Board
     Game test0 = new Game(1);
-    System.out.println("Empty Board: " + (test0.gameOver() == 0));
+    System.out.println("Empty Board: " + (test0.gameOver() == 0)); 
 
     // Board is Full
-    Game test1 = new Game(1);
+    Game test1 = new Game(1); 
     for (int i = 0; i < 6; i++) {
       for (int j = 0; j < 7; j++)
         test1.board[i][j] = 3;
