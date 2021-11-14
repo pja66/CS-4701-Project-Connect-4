@@ -10,7 +10,7 @@ public class Game implements GameInterface {
     id = boardId;
   }
 
-  public boolean fourInARow(int turn, int row, int col) {
+  private boolean fourInARow(int turn, int row, int col) {
     // Vertical
     if (row + 3 < this.board.length) {
       boolean t1 = this.board[row][col] == turn;
@@ -46,7 +46,7 @@ public class Game implements GameInterface {
     return false;
   }
 
-  public boolean boardfull() {
+  private boolean boardfull() {
     int rows = this.board.length;
     int cols = this.board[0].length;
 
@@ -81,15 +81,28 @@ public class Game implements GameInterface {
       this.turn = this.yellow;
   }
 
-  public boolean placeMove(int colMove) {
+  public int placeMove(int colMove) {
     for (int row = 0; row < 6; row++) {
       if (this.board[row][colMove] == 0) {
         this.board[row][colMove] = this.turn;
         changeTurn();
-        return true;
+        return row;
       }
     }
-    return false;
+    return -1;
+  }
+
+  public int removeMove(int colMove) {
+    for (int row = 5; row > -1; row--) {
+      if (this.board[row][colMove] != 0 && this.board[row][colMove] != this.turn) 
+      {
+        this.board[row][colMove] = 0;
+        changeTurn();
+        return row;
+      }
+
+    }
+    return -1;
   }
 
   public void resetBoard() {

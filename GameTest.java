@@ -1,4 +1,4 @@
-public class BoardTest {
+public class GameTest {
   public static void main(String[] args) {
     System.out.println("Tests: ");
 
@@ -79,5 +79,21 @@ public class BoardTest {
     test9.board[2][3] = test9.yellow;
 
     System.out.println("Diagonal 2: " + (test9.gameOver() == 2));
+
+    // RemoveMove 1
+    Game test10 = new Game(1);
+    System.out.println("RemoveMove 1: " +(test10.removeMove(0) == -1));
+
+    // RemoveMove 2
+    Game test11 = new Game(1);
+    test11.placeMove(0);
+    test11.removeMove(0);
+    System.out.println("RemoveMove 2: " + (test11.board[0][0] == 0));
+
+    // RemoveMove turn change
+    Game test12 = new Game(1);
+    test12.placeMove(1);
+    test12.removeMove(1);
+    System.out.println("RemoveMove3 : " + (test12.turn == test12.yellow));
   }
 }

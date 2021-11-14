@@ -1,10 +1,21 @@
 public interface HeuristicAlgosInterface {
 
-public void naiveMove();
+  // Overview: Suggests a uniformly Random column to place move. 
+  // Input: void
+  // Output: an int repsenting a column element of {0,...,6}
+  public int naiveMove();
 
-public void maxConnected();
+  // Overview: Suggests a move based on how many connected pieces the move 
+  //            creates. (ie. 1, 2, 3, 4). If a tie, picks first column from 
+  //            tied moves.
+  // Input: Game
+  // Output: an int repsenting a column element of {0,...,6}
+  public int maxConnected(Game currentGame);
 
-public void maxOpenSpotsGen();
-
-public void blockLongestOppStr();
+  // Overview: Suggests a move based on the ability to block the opponents 
+  //           longest string of peices. If a tiepicks first column from 
+  //            tied moves.
+  // Input: Game
+  // Output: an int repsenting a column element of {0,...,6}
+  public int blockLongestOppStr(Game currentGame);
 }
