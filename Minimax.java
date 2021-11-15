@@ -1,10 +1,6 @@
 public class Minimax{
   
-  //int alpha = 0;
-  //int beta = 0;
-  //int depth;
-
-  public Minimax()
+public Minimax()
   {
   }
 
@@ -20,7 +16,7 @@ public class Minimax{
       if(gameResult == 2) 
         return 0;
 
-      return algos.valueCenterofBoard(curGame);
+      return algos.naiveMove();
     }
 
     //Maximizing Player

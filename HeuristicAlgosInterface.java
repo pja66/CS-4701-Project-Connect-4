@@ -1,8 +1,8 @@
 public interface HeuristicAlgosInterface {
 
-  // Overview: Suggests a uniformly Random column to place move 
+  // Overview: Provides a random score for the board layout 
   // Input: void
-  // Output: an int repsenting a column element of {0,...,6}
+  // Output: an int between {0,...,50}
   public int naiveMove();
 
   // Overview: Generates a score based on how many connected pieces are on the board 
