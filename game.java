@@ -2,13 +2,34 @@ public class Game implements GameInterface {
   public int[][] board = new int[6][7];
   public int yellow = 1;
   public int red = 2;
-  public int turn = yellow; // Yellow Goes first
+  public int turn = yellow; // Yellow Goes first 
   public int id;
 
-  // Constructor
+  // Constructors
   public Game(int boardId) {
     id = boardId;
   }
+
+  public Game(Game copy) {
+    this.turn = copy.turn;
+
+    for(int i = 0; i < 6; i++)
+    {
+      for(int j = 0; j< 7; j++)
+      {
+        this.board[i][j] =  copy.board[i][j];
+      }
+    }
+  }
+
+  public int otherPlayer()
+  {
+    if(this.turn == this.yellow)
+      return this.red;
+    else
+      return this.yellow;
+  }
+
 
   private boolean fourInARow(int turn, int row, int col) {
     // Vertical
@@ -66,7 +87,10 @@ public class Game implements GameInterface {
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
         if (this.board[i][j] != 0) {
-          if (fourInARow(this.turn, i, j))
+          if (fourInARow(this.yellow, i, j))
+            return 2;
+
+          if (fourInARow(this.red, i, j))
             return 2;
         }
       }

@@ -6,5 +6,12 @@ public interface MiniMaxInterface {
   //         if a parciualr move is taken
   public int miniMaxSearch(Game curGame, int depth, int turn);
 
+  //Overview: First Step of the Minimax Search Algorithm. need this because
+  //          We also need to keep track of the moves that are made not just 
+  //          the score.
+  //Input: Game, Game, depth of search,
+  //Output: Column to place move. If ties, the Algo. picks amongst best chooses 
+  //        randomly
+  public int bestMove(Game curGame, int depth);
 
 }

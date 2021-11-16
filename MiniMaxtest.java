@@ -3,22 +3,14 @@ public class MiniMaxtest {
     Game test = new Game(1);
     Minimax search = new Minimax();
 
-    test.showBoard();
-    int output = -1;
-    int oppIndex = -1;
+    test.board[0][3] = 1;
+    test.board[0][2] = 1;
+    test.board[0][1] = 1;
 
-    for (int i = 0; i < 7; i++) {
+    int bstMove = search.bestMove(test, 2);
+    test.showBoard(); 
 
-      test.placeMove(i);
-      int moveScore = search.miniMaxSearch(test, 5, test.turn);
-      test.removeMove(i);
-
-      if (output < moveScore) {
-        oppIndex = i;
-        output = moveScore;
-      }
-    }
-    System.out.println(oppIndex);
+    System.out.println(bstMove);
 
   }
 }
