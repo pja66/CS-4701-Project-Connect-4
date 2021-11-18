@@ -1,17 +1,15 @@
 import java.util.HashMap;
 import java.util.ArrayList;
 
-
 public class Minimax{
-  
-public Minimax()
+  public Minimax()
   {
   }
 
   public int bestMove(Game curGame, int depth)
   {
     int output = -1;
-    HashMap<Integer, ArrayList<Integer>> moves = new HashMap();
+    HashMap<Integer, ArrayList<Integer>> moves = new HashMap<Integer, ArrayList<Integer>>();
 
     for (int i = 0; i < 7; i++) {
       Game copy = new Game(curGame);
@@ -19,7 +17,7 @@ public Minimax()
       int moveScore = miniMaxSearch(copy, depth-1, copy.otherPlayer());
 
       if (output < moveScore){
-        ArrayList<Integer> lst = new ArrayList();
+        ArrayList<Integer> lst = new ArrayList<Integer>();
         lst.add(i);
         moves.put(moveScore, lst);
         output = moveScore;
@@ -67,7 +65,7 @@ public Minimax()
       }
       return maxEval;
     }
-    //Mimiimizing Player
+    //Mimimizing Player
     else 
     {
       int minEval = Integer.MAX_VALUE;
@@ -81,6 +79,5 @@ public Minimax()
       }
       return minEval;
     }
-    
   }
 }

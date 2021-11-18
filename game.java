@@ -1,7 +1,7 @@
 public class Game implements GameInterface {
   public int[][] board = new int[6][7];
   public int yellow = 1;
-  public int red = 2;
+  public int red = -1;
   public int turn = yellow; // Yellow Goes first 
   public int id;
 
@@ -16,9 +16,7 @@ public class Game implements GameInterface {
     for(int i = 0; i < 6; i++)
     {
       for(int j = 0; j< 7; j++)
-      {
         this.board[i][j] =  copy.board[i][j];
-      }
     }
   }
 
@@ -30,10 +28,9 @@ public class Game implements GameInterface {
       return this.yellow;
   }
 
-
   private boolean fourInARow(int turn, int row, int col) {
     // Vertical
-    if (row + 3 < this.board.length) {
+    if (row + 3 < 6) {
       boolean t1 = this.board[row][col] == turn;
       boolean t2 = this.board[row + 1][col] == turn;
       boolean t3 = this.board[row + 2][col] == turn;
@@ -44,7 +41,7 @@ public class Game implements GameInterface {
     }
 
     // Horizontal
-    if (col + 3 < this.board[0].length) {
+    if (col + 3 < 7) {
       boolean t1 = this.board[row][col] == turn;
       boolean t2 = this.board[row][col + 1] == turn;
       boolean t3 = this.board[row][col + 2] == turn;
@@ -54,8 +51,8 @@ public class Game implements GameInterface {
         return true;
     }
 
-    // Diagonal
-    if (col + 3 < this.board[0].length && row + 3 < this.board.length) {
+    // Diagonal Positive Slope
+    if (col + 3 < 7 && row + 3 < 6) {
       boolean t1 = this.board[row][col] == turn;
       boolean t2 = this.board[row + 1][col + 1] == turn;
       boolean t3 = this.board[row + 2][col + 2] == turn;
@@ -64,15 +61,24 @@ public class Game implements GameInterface {
       if (t1 && t2 && t3 && t4)
         return true;
     }
+
+    // Diagonal Negitive Slope
+    if (col - 3 > -1 && row + 3 < 6) {
+      boolean t1 = this.board[row][col] == turn;
+      boolean t2 = this.board[row + 1][col - 1] == turn;
+      boolean t3 = this.board[row + 2][col - 2] == turn;
+      boolean t4 = this.board[row + 3][col - 3] == turn;
+
+      if (t1 && t2 && t3 && t4)
+        return true;
+    }
+
     return false;
   }
 
   private boolean boardfull() {
-    int rows = this.board.length;
-    int cols = this.board[0].length;
-
-    for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < cols; j++) {
+    for (int i = 0; i < 6; i++) {
+      for (int j = 0; j < 7; j++) {
         if (this.board[i][j] == 0)
           return false;
       }
@@ -81,11 +87,8 @@ public class Game implements GameInterface {
   }
 
   public int gameOver() {
-    int rows = this.board.length;
-    int cols = this.board[0].length;
-
-    for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < cols; j++) {
+    for (int i = 0; i < 6; i++) {
+      for (int j = 0; j < 7; j++) {
         if (this.board[i][j] != 0) {
           if (fourInARow(this.yellow, i, j))
             return 2;
@@ -134,13 +137,16 @@ public class Game implements GameInterface {
   }
 
   public void showBoard() {
-    int rows = this.board.length;
-    int cols = this.board[0].length;
-
-    for (int i = rows - 1; i > -1; i--) {
+    for (int i = 6 - 1; i > -1; i--) {
       System.out.print(" | ");
-      for (int j = 0; j < cols; j++) {
-        System.out.print(this.board[i][j]);
+      for (int j = 0; j < 7; j++) {
+        if(this.board[i][j] == this.yellow)
+          System.out.print("\uD83D\uDFE1");
+        else if(this.board[i][j] == this.red)
+          System.out.print("\uD83D\uDD34");
+        else 
+          System.out.print("  ");
+
         System.out.print(" | ");
       }
       System.out.println();

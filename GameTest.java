@@ -110,18 +110,18 @@ public class GameTest {
 
     /* 
     Diagonal 2
-    | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 
-    | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 
-    | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 
+    | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 
     | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 
+    | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 
+    | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 
     | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
     | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
     */
     Game test9 = new Game(1);
-    test9.board[5][6] = test9.yellow;
-    test9.board[4][5] = test9.yellow;
+    test9.board[2][5] = test9.yellow;
     test9.board[3][4] = test9.yellow;
-    test9.board[2][3] = test9.yellow;
+    test9.board[4][3] = test9.yellow;
+    test9.board[5][2] = test9.yellow;
     System.out.println("Diagonal 2: " + (test9.gameOver() == 2));
 
     // RemoveMove 1
@@ -138,6 +138,6 @@ public class GameTest {
     Game test12 = new Game(1);
     test12.placeMove(1);
     test12.removeMove(1);
-    System.out.println("RemoveMove3 : " + (test12.turn == test12.yellow));
+    System.out.println("RemoveMove 3 : " + (test12.turn == test12.yellow));
   }
 }

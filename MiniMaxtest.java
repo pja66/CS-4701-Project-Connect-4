@@ -6,6 +6,7 @@ public class MiniMaxtest {
     test.board[0][3] = 1;
     test.board[0][2] = 1;
     test.board[0][1] = 1;
+    test.board[1][1] = -1;
 
     int bstMove = search.bestMove(test, 2);
     test.showBoard(); 

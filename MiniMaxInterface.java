@@ -1,11 +1,4 @@
 public interface MiniMaxInterface {
-  
-  //Overview: Implementation of Minimax Search Algorithm
-  //Input: Game, depth of search, current game turn
-  //Output: The value of the board, based on a heuristic algorithm,
-  //         if a parciualr move is taken
-  public int miniMaxSearch(Game curGame, int depth, int turn);
-
   //Overview: First Step of the Minimax Search Algorithm. need this because
   //          We also need to keep track of the moves that are made not just 
   //          the score.
@@ -14,4 +7,9 @@ public interface MiniMaxInterface {
   //        randomly
   public int bestMove(Game curGame, int depth);
 
+  //Overview: Implementation of Minimax Search Algorithm
+  //Input: Game, depth of search, current game turn
+  //Output: The value of the board, based on a heuristic algorithm,
+  //         if a parciualr move is taken
+  public int miniMaxSearch(Game curGame, int depth, int turn);
 }
