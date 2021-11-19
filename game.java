@@ -109,6 +109,9 @@ public class Game implements GameInterface {
   }
 
   public int placeMove(int colMove) {
+    if(colMove < 0 || colMove > 6)
+      return -1;
+
     for (int row = 0; row < 6; row++) {
       if (this.board[row][colMove] == 0) {
         this.board[row][colMove] = this.turn;

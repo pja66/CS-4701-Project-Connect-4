@@ -1,5 +1,3 @@
-//ISSUES: ILLEGAL MOVES NOT HANDLED THE BEST, NEED TOO LOOK INTO
-
 public interface MiniMaxInterface {
   //Overview: First Step of the Minimax Search Algorithm. need this because
   //          We also need to keep track of the moves that are made not just 

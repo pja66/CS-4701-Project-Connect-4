@@ -71,6 +71,15 @@ public class Minimax{
 
       if(heuristic == 0)
         return algos.naiveMove();
+
+      if(heuristic == 1)
+        return algos.maxConnected(curGame);
+
+      if(heuristic == 2)
+        return algos.blockLongestOppStr(curGame);
+
+      if(heuristic == 3)
+        return algos.valueCenterofBoard(curGame);
     }
 
     //Maximizing Player
@@ -81,12 +90,13 @@ public class Minimax{
       for(int i = 0; i < 7; i++)
       {
         int legalMove = copy.placeMove(i);
-        if(legalMove != -1)
-        {
-          int eval = miniMaxSearch(copy, depth-1, turn, heuristic);
-          copy.removeMove(i);
-          maxEval = Math.max(maxEval, eval);
-        }
+        if(legalMove == -1)
+          return 0;
+
+        int eval = miniMaxSearch(copy, depth-1, turn, heuristic);
+        copy.removeMove(i);
+        maxEval = Math.max(maxEval, eval);
+        
       }
       return maxEval;
     }
@@ -98,12 +108,12 @@ public class Minimax{
       for(int i = 0; i < 7; i++)
       {
         int legalMove = copy.placeMove(i);
-        if(legalMove != -1)
-        {
-          int eval = miniMaxSearch(copy, depth-1, turn, heuristic);
-          copy.removeMove(i);
-          minEval = Math.min(minEval, eval);
-        }
+        if(legalMove == -1)
+          return 0;
+        
+        int eval = miniMaxSearch(copy, depth-1, turn, heuristic);
+        copy.removeMove(i);
+        minEval = Math.min(minEval, eval);
       }
       return minEval;
     }
