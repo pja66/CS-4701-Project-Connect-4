@@ -3,16 +3,19 @@ public interface HeuristicAlgosInterface {
   // Overview: Provides a random score for the board layout 
   // Input: void
   // Output: an int between {0,...,50}
+  // ID for Minimax = 0
   public int naiveMove();
 
   // Overview: Generates a score based on how many connected pieces are on the board 
   // Input: Game
   // Output: An int representing the favorability current state of the board 
+  // ID for Minimax = 1
   public int maxConnected(Game currentGame);
 
   // Overview: Generates a score based on how many opp. strings are blockable
   // Input: Game
   // Output: An int representing the favorability current state of the board 
+  // ID for Minimax = 2
   public int blockLongestOppStr(Game currentGame);
 
 
@@ -29,5 +32,6 @@ public interface HeuristicAlgosInterface {
   // Input: Game
   // Output: An int representing the favorability current state of the board 
   // Source: https://file.scirp.org/Html/1-9601415_90972.htm#t1
+  // ID for Minimax = 3
   public int valueCenterofBoard(Game currentGame);
 }

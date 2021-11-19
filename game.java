@@ -151,5 +151,12 @@ public class Game implements GameInterface {
       }
       System.out.println();
     }
+
+    System.out.print("  ");
+    for(int i = 0; i < 7; i++)
+    {
+      System.out.print("  " + i + "  ");
+    }
+    System.out.println();
   }
 }
