@@ -40,6 +40,7 @@ public class ResearchPlayGame {
     System.out.println("CPU 1 Wins: " + winsCPU1);
     System.out.println("CPU 2 Wins: " + winsCPU2);
     System.out.println("Number of ties: " + ties);
+    myObj.close();
   }
 
   public static int playGame(int algo1, int algo2, int depth1, int depth2)

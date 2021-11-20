@@ -118,5 +118,6 @@ public class UserPlayGame {
       if(game.gameOver() == 1)
         System.out.println("ITS A TIE!");
     }
+    myObj.close();
   }
 }
