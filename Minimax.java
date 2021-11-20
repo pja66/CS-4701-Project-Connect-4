@@ -18,7 +18,7 @@ public class Minimax{
       if(legalMove != -1)
       {
         int moveScore = miniMaxSearch(copy, depth-1, copy.otherPlayer(), heuristic);
-
+        System.out.println(moveScore);
         if (output < moveScore){
           ArrayList<Integer> lst = new ArrayList<Integer>();
           lst.add(i);
@@ -52,7 +52,7 @@ public class Minimax{
         if(legalMove != -1)
           lst.add(i);
       }
-      int index = (int) Math.ceil(Math.random() * (lst.size()-1));
+      int index = (int) Math.ceil(Math.random() * (lst.size()-1)); 
       return lst.get(index); 
     }
   }
@@ -89,14 +89,16 @@ public class Minimax{
       Game copy = new Game(curGame);
       for(int i = 0; i < 7; i++)
       {
+        int eval = 0;
         int legalMove = copy.placeMove(i);
         if(legalMove == -1)
-          return 0;
-
-        int eval = miniMaxSearch(copy, depth-1, turn, heuristic);
-        copy.removeMove(i);
+          eval = Integer.MIN_VALUE;
+        else
+        {
+          eval = miniMaxSearch(copy, depth-1, turn, heuristic);
+          copy.removeMove(i);
+        }
         maxEval = Math.max(maxEval, eval);
-        
       }
       return maxEval;
     }
@@ -107,12 +109,15 @@ public class Minimax{
       Game copy = new Game(curGame);
       for(int i = 0; i < 7; i++)
       {
+        int eval = 0;
         int legalMove = copy.placeMove(i);
         if(legalMove == -1)
-          return 0;
-        
-        int eval = miniMaxSearch(copy, depth-1, turn, heuristic);
-        copy.removeMove(i);
+          eval = Integer.MAX_VALUE;
+        else
+        {
+          eval = miniMaxSearch(copy, depth-1, turn, heuristic);
+          copy.removeMove(i);
+        }
         minEval = Math.min(minEval, eval);
       }
       return minEval;

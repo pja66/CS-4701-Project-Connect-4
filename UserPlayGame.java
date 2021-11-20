@@ -31,7 +31,7 @@ public class UserPlayGame {
       Game game = new Game(1);
       Minimax search = new Minimax();
 
-      System.out.println("Enter an number for search depth [0 to 8]");
+      System.out.println("Enter an number for search depth [1 to 8]");
       int depth = myObj.nextInt();
 
       System.out.println("Enter an number for a Hueristic Algorithm [0 to 3]");
@@ -76,13 +76,13 @@ public class UserPlayGame {
       Game game = new Game(1);
       Minimax search = new Minimax();
 
-      System.out.println("Enter an number for search depth of CPU 1 [0 to 8]");
+      System.out.println("Enter an number for search depth of CPU 1 [1 to 8]");
       int depth1 = myObj.nextInt();
 
       System.out.println("Enter an number for a Hueristic Algorithm for CPU 1 [0 to 3]");
       int id1 = myObj.nextInt();
 
-      System.out.println("Enter an number for search depth CPU 2 (0 to 8)");
+      System.out.println("Enter an number for search depth CPU 2 (1 to 8)");
       int depth2 = myObj.nextInt();
 
       System.out.println("Enter an number for a Hueristic Algorithm for CPU 2 [0 to 3]");
