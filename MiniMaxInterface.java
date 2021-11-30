@@ -10,8 +10,8 @@ public interface MiniMaxInterface {
 
   //Overview: Implementation of Minimax Search Algorithm
   //Input: Game, depth of search, current game turn, int which represents 
-  //       the heursitic you want to use
+  //       the heursitic you want to use, Alpha/Beta are for A&B pruing
   //Output: The value of the board, based on a heuristic algorithm,
   //         if a parciualr move is taken
-  public int miniMaxSearch(Game curGame, int depth, int turn, int heuristic);
+  public int miniMaxSearch(Game curGame, int depth, int turn, int heuristic, int alpha, int beta);
 }

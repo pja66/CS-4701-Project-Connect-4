@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.ArrayList;
 
-public class Minimax{
+public class Minimax implements MiniMaxInterface {
   public Minimax()
   {
   }
@@ -11,14 +11,16 @@ public class Minimax{
     int output = Integer.MIN_VALUE;
     HashMap<Integer, ArrayList<Integer>> moves = new HashMap<Integer, ArrayList<Integer>>();
 
+    int alpha = Integer.MIN_VALUE;
+    int beta = Integer.MAX_VALUE;
+
     for (int i = 0; i < 7; i++) {
       Game copy = new Game(curGame);
 
       int legalMove = copy.placeMove(i);
       if(legalMove != -1)
       {
-        int moveScore = miniMaxSearch(copy, depth-1, copy.otherPlayer(), heuristic);
-        System.out.println(moveScore);
+        int moveScore = miniMaxSearch(copy, depth-1, copy.otherPlayer(), heuristic, alpha, beta);
         if (output < moveScore){
           ArrayList<Integer> lst = new ArrayList<Integer>();
           lst.add(i);
@@ -57,7 +59,7 @@ public class Minimax{
     }
   }
 
-  public int miniMaxSearch(Game curGame, int depth, int turn, int heuristic)
+  public int miniMaxSearch(Game curGame, int depth, int turn, int heuristic, int alpha, int beta)
   {
     HeuristicAlgos algos = new HeuristicAlgos();
     //BaseCase
@@ -85,7 +87,6 @@ public class Minimax{
     //Maximizing Player
     if(turn == curGame.turn) 
     {
-      int maxEval = Integer.MIN_VALUE;
       Game copy = new Game(curGame);
       for(int i = 0; i < 7; i++)
       {
@@ -95,17 +96,20 @@ public class Minimax{
           eval = Integer.MIN_VALUE;
         else
         {
-          eval = miniMaxSearch(copy, depth-1, turn, heuristic);
+          eval = miniMaxSearch(copy, depth-1, turn, heuristic, alpha, beta);
           copy.removeMove(i);
         }
-        maxEval = Math.max(maxEval, eval);
+        alpha = Math.max(alpha, eval);
+
+        //Alpha-Beta Pruning
+        if(beta <= alpha)
+          return alpha;
       }
-      return maxEval;
+      return alpha;
     }
     //Mimimizing Player
     else 
     {
-      int minEval = Integer.MAX_VALUE;
       Game copy = new Game(curGame);
       for(int i = 0; i < 7; i++)
       {
@@ -115,12 +119,16 @@ public class Minimax{
           eval = Integer.MAX_VALUE;
         else
         {
-          eval = miniMaxSearch(copy, depth-1, turn, heuristic);
+          eval = miniMaxSearch(copy, depth-1, turn, heuristic, alpha, beta);
           copy.removeMove(i);
         }
-        minEval = Math.min(minEval, eval);
+        beta = Math.min(beta, eval);
+
+        //Alpha-Beta Pruning
+        if(beta <= alpha)
+          return beta;
       }
-      return minEval;
+      return beta;
     }
   }
 }
