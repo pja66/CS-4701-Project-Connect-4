@@ -75,7 +75,7 @@ public class Minimax implements MiniMaxInterface {
         return algos.valueCenterofBoard(curGame);
 
       if (heuristic == 4)
-        return algos.valueCenterofBoard(curGame);
+        return algos.valueCornersofBoard(curGame);
     }
 
     // Maximizing Player
