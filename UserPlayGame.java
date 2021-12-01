@@ -1,27 +1,25 @@
 import java.util.Scanner;
 
 public class UserPlayGame {
-  public static void main(String[] args) throws InterruptedException{
+  public static void main(String[] args) throws InterruptedException {
     // Game Interface Setup
     Scanner myObj = new Scanner(System.in);
-   
+
     System.out.println(" ");
-    System.out.println("Welcome to ");                                                         
+    System.out.println("Welcome to ");
     System.out.println(" |\\/| o ._  o |\\/|  /\\  \\/  /   _  ._   _   _ _|_ |_|_ | | | ");
     System.out.println(" |  | | | | | |  | /--\\ /\\  \\_ (_) | | (/_ (_  |_   |  o o o ");
-    System.out.println(" ");                                        
+    System.out.println(" ");
 
     System.out.println("Press 1 to play Connect4, or 2 for the directions");
     int whiteSheet = myObj.nextInt();
-    if(whiteSheet == 2)
-    {
+    if (whiteSheet == 2) {
       System.out.println("IMPLEMENT DIRECTIONS/INFO");
     }
 
     System.out.println("Press 1 for Hum Vs. CPU, 2 for CPU Vs. CPU");
     int playAI = myObj.nextInt();
-    while(playAI != 1 && playAI != 2)
-    {
+    while (playAI != 1 && playAI != 2) {
       System.out.println("Please enter 1 or 2: ");
       playAI = myObj.nextInt();
     }
@@ -34,10 +32,10 @@ public class UserPlayGame {
       System.out.println("Enter an number for search depth [1 to 8]");
       int depth = myObj.nextInt();
 
-      System.out.println("Enter an number for a Hueristic Algorithm [0 to 3]");
+      System.out.println("Enter an number for a Heuristic Algorithm [0 to 4]");
       int id = myObj.nextInt();
 
-      while(game.gameOver() != 1) {
+      while (game.gameOver() != 1) {
         int bstMove = search.bestMove(game, depth, id);
         game.placeMove(bstMove);
         game.showBoard();
@@ -51,13 +49,12 @@ public class UserPlayGame {
         }
         System.out.println("Enter Move Column");
         int col = myObj.nextInt();
-        int legalMove =  game.placeMove(col);
+        int legalMove = game.placeMove(col);
 
-        while(legalMove == -1)
-        {
+        while (legalMove == -1) {
           System.out.println("Please Enter a Valid Column");
           col = myObj.nextInt();
-          legalMove =  game.placeMove(col);
+          legalMove = game.placeMove(col);
         }
 
         if (game.gameOver() == 2) {
@@ -68,10 +65,10 @@ public class UserPlayGame {
           break;
         }
       }
-      if(game.gameOver() == 1)
+      if (game.gameOver() == 1)
         System.out.println("TIE!");
-    } 
-    //CPU Vs. CPU
+    }
+    // CPU Vs. CPU
     else if (playAI == 2) {
       Game game = new Game(1);
       Minimax search = new Minimax();
@@ -79,13 +76,13 @@ public class UserPlayGame {
       System.out.println("Enter an number for search depth of CPU 1 [1 to 8]");
       int depth1 = myObj.nextInt();
 
-      System.out.println("Enter an number for a Hueristic Algorithm for CPU 1 [0 to 3]");
+      System.out.println("Enter an number for a Heuristic Algorithm for CPU 1 [0 to 4]");
       int id1 = myObj.nextInt();
 
       System.out.println("Enter an number for search depth CPU 2 (1 to 8)");
       int depth2 = myObj.nextInt();
 
-      System.out.println("Enter an number for a Hueristic Algorithm for CPU 2 [0 to 3]");
+      System.out.println("Enter an number for a Hueristic Algorithm for CPU 2 [0 to 4]");
       int id2 = myObj.nextInt();
 
       while (game.gameOver() != 1) {
@@ -115,7 +112,7 @@ public class UserPlayGame {
         Thread.sleep(2000);
       }
 
-      if(game.gameOver() == 1)
+      if (game.gameOver() == 1)
         System.out.println("ITS A TIE!");
     }
     myObj.close();

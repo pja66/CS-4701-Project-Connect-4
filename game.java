@@ -2,7 +2,7 @@ public class Game implements GameInterface {
   public int[][] board = new int[6][7];
   public int yellow = 1;
   public int red = -1;
-  public int turn = yellow; // Yellow Goes first 
+  public int turn = yellow; // Yellow Goes first
   public int id;
 
   // Constructors
@@ -13,16 +13,14 @@ public class Game implements GameInterface {
   public Game(Game copy) {
     this.turn = copy.turn;
 
-    for(int i = 0; i < 6; i++)
-    {
-      for(int j = 0; j< 7; j++)
-        this.board[i][j] =  copy.board[i][j];
+    for (int i = 0; i < 6; i++) {
+      for (int j = 0; j < 7; j++)
+        this.board[i][j] = copy.board[i][j];
     }
   }
 
-  public int otherPlayer()
-  {
-    if(this.turn == this.yellow)
+  public int otherPlayer() {
+    if (this.turn == this.yellow)
       return this.red;
     else
       return this.yellow;
@@ -109,7 +107,7 @@ public class Game implements GameInterface {
   }
 
   public int placeMove(int colMove) {
-    if(colMove < 0 || colMove > 6)
+    if (colMove < 0 || colMove > 6)
       return -1;
 
     for (int row = 0; row < 6; row++) {
@@ -124,8 +122,7 @@ public class Game implements GameInterface {
 
   public int removeMove(int colMove) {
     for (int row = 5; row > -1; row--) {
-      if (this.board[row][colMove] != 0 && this.board[row][colMove] != this.turn) 
-      {
+      if (this.board[row][colMove] != 0 && this.board[row][colMove] != this.turn) {
         this.board[row][colMove] = 0;
         changeTurn();
         return row;
@@ -143,11 +140,11 @@ public class Game implements GameInterface {
     for (int i = 6 - 1; i > -1; i--) {
       System.out.print(" | ");
       for (int j = 0; j < 7; j++) {
-        if(this.board[i][j] == this.yellow)
+        if (this.board[i][j] == this.yellow)
           System.out.print("\uD83D\uDFE1");
-        else if(this.board[i][j] == this.red)
+        else if (this.board[i][j] == this.red)
           System.out.print("\uD83D\uDD34");
-        else 
+        else
           System.out.print("  ");
 
         System.out.print(" | ");
@@ -156,8 +153,7 @@ public class Game implements GameInterface {
     }
 
     System.out.print("  ");
-    for(int i = 0; i < 7; i++)
-    {
+    for (int i = 0; i < 7; i++) {
       System.out.print("  " + i + "  ");
     }
     System.out.println();
