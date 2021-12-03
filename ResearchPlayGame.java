@@ -8,15 +8,19 @@ public class ResearchPlayGame {
 
     System.out.println("Number of simulations");
     int sim = myObj.nextInt();
+    System.out.println(" ");
 
     System.out.println("Search depth for CPU 1 [1 to 8]");
     int depth1 = myObj.nextInt();
+    System.out.println(" ");
 
     System.out.println("Hueristic Algo for CPU 1 [0 to 3]");
     int algo1 = myObj.nextInt();
+    System.out.println(" ");
 
     System.out.println("Search depth for CPU 2 [1 to 8]");
     int depth2 = myObj.nextInt();
+    System.out.println(" ");
 
     System.out.println("Hueristic Algo for CPU 2 [0 to 3]");
     int algo2 = myObj.nextInt();

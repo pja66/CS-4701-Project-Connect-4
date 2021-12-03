@@ -7,18 +7,22 @@ public class UserPlayGame {
 
     System.out.println(" ");
     System.out.println("Welcome to ");
+    System.out.println(" ");
     System.out.println(" |\\/| o ._  o |\\/|  /\\  \\/  /   _  ._   _   _ _|_ |_|_ | | | ");
     System.out.println(" |  | | | | | |  | /--\\ /\\  \\_ (_) | | (/_ (_  |_   |  o o o ");
     System.out.println(" ");
 
     System.out.println("Press 1 to play Connect4, or 2 for the directions");
     int whiteSheet = myObj.nextInt();
+    System.out.println(" ");
+
     if (whiteSheet == 2) {
       System.out.println("IMPLEMENT DIRECTIONS/INFO");
     }
-
     System.out.println("Press 1 for Hum Vs. CPU, 2 for CPU Vs. CPU");
     int playAI = myObj.nextInt();
+    System.out.println(" ");
+
     while (playAI != 1 && playAI != 2) {
       System.out.println("Please enter 1 or 2: ");
       playAI = myObj.nextInt();
@@ -31,9 +35,11 @@ public class UserPlayGame {
 
       System.out.println("Enter an number for search depth [1 to 8]");
       int depth = myObj.nextInt();
+      System.out.println(" ");
 
       System.out.println("Enter an number for a Heuristic Algorithm [0 to 3]");
       int id = myObj.nextInt();
+      System.out.println(" ");
 
       while (game.gameOver() != 1) {
         int bstMove = search.bestMove(game, depth, id);
@@ -75,15 +81,19 @@ public class UserPlayGame {
 
       System.out.println("Enter an number for search depth of CPU 1 [1 to 8]");
       int depth1 = myObj.nextInt();
+      System.out.println(" ");
 
       System.out.println("Enter an number for a Heuristic Algorithm for CPU 1 [0 to 3]");
       int id1 = myObj.nextInt();
+      System.out.println(" ");
 
       System.out.println("Enter an number for search depth CPU 2 (1 to 8)");
       int depth2 = myObj.nextInt();
+      System.out.println(" ");
 
       System.out.println("Enter an number for a Hueristic Algorithm for CPU 2 [0 to 3]");
       int id2 = myObj.nextInt();
+      System.out.println(" ");
 
       while (game.gameOver() != 1) {
         int bstMove = search.bestMove(game, depth1, id1);
