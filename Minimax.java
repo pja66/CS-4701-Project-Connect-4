@@ -69,12 +69,9 @@ public class Minimax implements MiniMaxInterface {
         return algos.maxConnected(curGame);
 
       if (heuristic == 2)
-        return algos.blockLongestOppStr(curGame);
-
-      if (heuristic == 3)
         return algos.valueCenterofBoard(curGame);
 
-      if (heuristic == 4)
+      if (heuristic == 3)
         return algos.valueCornersofBoard(curGame);
     }
 

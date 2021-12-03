@@ -70,7 +70,6 @@ public class Game implements GameInterface {
       if (t1 && t2 && t3 && t4)
         return true;
     }
-
     return false;
   }
 
@@ -127,7 +126,6 @@ public class Game implements GameInterface {
         changeTurn();
         return row;
       }
-
     }
     return -1;
   }

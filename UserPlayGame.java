@@ -32,7 +32,7 @@ public class UserPlayGame {
       System.out.println("Enter an number for search depth [1 to 8]");
       int depth = myObj.nextInt();
 
-      System.out.println("Enter an number for a Heuristic Algorithm [0 to 4]");
+      System.out.println("Enter an number for a Heuristic Algorithm [0 to 3]");
       int id = myObj.nextInt();
 
       while (game.gameOver() != 1) {
@@ -76,13 +76,13 @@ public class UserPlayGame {
       System.out.println("Enter an number for search depth of CPU 1 [1 to 8]");
       int depth1 = myObj.nextInt();
 
-      System.out.println("Enter an number for a Heuristic Algorithm for CPU 1 [0 to 4]");
+      System.out.println("Enter an number for a Heuristic Algorithm for CPU 1 [0 to 3]");
       int id1 = myObj.nextInt();
 
       System.out.println("Enter an number for search depth CPU 2 (1 to 8)");
       int depth2 = myObj.nextInt();
 
-      System.out.println("Enter an number for a Hueristic Algorithm for CPU 2 [0 to 4]");
+      System.out.println("Enter an number for a Hueristic Algorithm for CPU 2 [0 to 3]");
       int id2 = myObj.nextInt();
 
       while (game.gameOver() != 1) {

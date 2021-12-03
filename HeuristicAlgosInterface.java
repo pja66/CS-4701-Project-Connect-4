@@ -13,12 +13,6 @@ public interface HeuristicAlgosInterface {
   // ID for Minimax = 1
   public int maxConnected(Game currentGame);
 
-  // Overview: Generates a score based on how many opp. strings are blockable
-  // Input: Game
-  // Output: An int representing the favorability current state of the board
-  // ID for Minimax = 2
-  public int blockLongestOppStr(Game currentGame);
-
   // Overview: Generates a value for the current state of the board based on
   // the below matrix
   //
