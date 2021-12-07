@@ -4,25 +4,40 @@ public class ResearchPlayGame {
   public static void main(String[] args) {
     Scanner myObj = new Scanner(System.in);
     System.out.println("");
-    System.out.println("RESEARCH: ");
+    System.out.println("____                               _     ");
+    System.out.println("|  _ \\ ___  ___  ___  __ _ _ __ ___| |__  _ ");  
+    System.out.println("| |_) / _ \\/ __|/ _ \\/ _` | '__/ __| '_ \\(_)"); 
+    System.out.println("|  _ <  __/\\__ \\  __/ (_| | | | (__| | | |_ ");
+    System.out.println("|_| \\_\\___||___/\\___|\\__,_|_|  \\___|_| |_(_)");
+    
+    System.out.println("");
+    System.out.println("__________________________");
+    System.out.println("");
 
-    System.out.println("Number of simulations");
+    System.out.println("Heuristic Algorithmns:");
+    System.out.println("0 = naiveMove");
+    System.out.println("1 = maxConnected");
+    System.out.println("2 = valueCenterofBoard");
+    System.out.println("3 = valueCornersofBoard");
+    System.out.println("");
+
+    System.out.println("Number of simulations: ");
     int sim = myObj.nextInt();
     System.out.println(" ");
 
-    System.out.println("Search depth for CPU 1 [1 to 8]");
+    System.out.println("Search depth for CPU 1 [1 to 8]: ");
     int depth1 = myObj.nextInt();
     System.out.println(" ");
 
-    System.out.println("Hueristic Algo for CPU 1 [0 to 3]");
+    System.out.println("Heuristic Algo for CPU 1 [0 to 3]: ");
     int algo1 = myObj.nextInt();
     System.out.println(" ");
 
-    System.out.println("Search depth for CPU 2 [1 to 8]");
+    System.out.println("Search depth for CPU 2 [1 to 8]: ");
     int depth2 = myObj.nextInt();
     System.out.println(" ");
 
-    System.out.println("Hueristic Algo for CPU 2 [0 to 3]");
+    System.out.println("Heuristic Algo for CPU 2 [0 to 3]: ");
     int algo2 = myObj.nextInt();
 
     int winsCPU1 = 0;
