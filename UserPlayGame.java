@@ -6,10 +6,25 @@ public class UserPlayGame {
     Scanner myObj = new Scanner(System.in);
 
     System.out.println(" ");
-    System.out.println("Welcome to ");
+    System.out.println("__      __   _                    _        ");
+    System.out.println("\\ \\    / /__| |__ ___ _ __  ___  | |_ ___  ");
+    System.out.println(" \\ \\/\\/ / -_) / _/ _ \\ '  \\/ -_) |  _/ _ \\ ");
+    System.out.println("  \\_/\\_/\\___|_\\__\\___/_|_|_\\___|  \\__\\___/ ");
+                                               
+   
     System.out.println(" ");
-    System.out.println(" |\\/| o ._  o |\\/|  /\\  \\/  /   _  ._   _   _ _|_ |_|_ | | | ");
-    System.out.println(" |  | | | | | |  | /--\\ /\\  \\_ (_) | | (/_ (_  |_   |  o o o ");
+
+
+    
+    System.out.println("  __  __ _      _ __  __           ___                      _   _ _  _ _ _ ");
+    System.out.println(" |  \\/  (_)_ _ (_)  \\/  |__ ___ __/ __|___ _ _  _ _  ___ __| |_| | || | | |");
+    System.out.println(" | |\\/| | | ' \\| | |\\/| / _` \\ \\ / (__/ _ \\ ' \\| ' \\/ -_) _|  _|_  _|_|_|_|");
+    System.out.println(" |_|  |_|_|_||_|_|_|  |_\\__,_/_\\_\\\\___\\___/_||_|_||_\\___\\__|\\__| |_|(_|_|_)");
+                                                                              
+   
+
+
+
     System.out.println(" ");
 
     System.out.println("Press 1 to play Connect4, or 2 for the directions");
